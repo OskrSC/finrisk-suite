@@ -42,3 +42,4 @@ No se requiere configuración adicional. Las dependencias se instalan automátic
 ---
 
 > ⚠️ Todos los datos son **sintéticos** (semillas fijas). Para producción, reemplazar los generadores con conexiones a bases de datos reales.
+"# finrisk-suite" 
