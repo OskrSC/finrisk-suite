@@ -320,7 +320,7 @@ def build_credit_model(df: pd.DataFrame):
     model = xgb.XGBClassifier(
         n_estimators=200, max_depth=4, learning_rate=0.05,
         subsample=0.8, colsample_bytree=0.8,
-        use_label_encoder=False, eval_metric="logloss",
+        eval_metric="logloss",
         random_state=SEED, n_jobs=-1
     )
     model.fit(X_tr_s, y_tr)
@@ -418,7 +418,7 @@ def build_rating_model(df: pd.DataFrame):
 
     model = xgb.XGBClassifier(
         n_estimators=200, max_depth=4, learning_rate=0.05,
-        use_label_encoder=False, eval_metric="mlogloss",
+        eval_metric="mlogloss",
         random_state=SEED, n_jobs=-1
     )
     model.fit(X_tr_s, y_tr - 1)  # 0-indexed
@@ -446,7 +446,7 @@ def build_aml_model(df: pd.DataFrame):
     model = xgb.XGBClassifier(
         n_estimators=200, max_depth=5, learning_rate=0.05,
         scale_pos_weight=(y_tr==0).sum()/(y_tr==1).sum(),
-        use_label_encoder=False, eval_metric="logloss",
+        eval_metric="logloss",
         random_state=SEED, n_jobs=-1
     )
     model.fit(X_tr_s, y_tr)
